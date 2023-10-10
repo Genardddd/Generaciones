@@ -7,10 +7,10 @@ int main() {
 
     int filas, columnas;
 
-    printf("Ingrese el número de filas de las matrices: ");
+    printf("Ingrese el numero de filas de las matrices: ");
     scanf("%d", &filas);
 
-    printf("Ingrese el número de columnas de las matrices: ");
+    printf("Ingrese el numero de columnas de las matrices: ");
     scanf("%d", &columnas);
 
     int matriz1[filas][columnas];
@@ -86,16 +86,58 @@ int main() {
                 }
                 break;
 
-            case 3: // Multiplicación
-                // Implementa aquí la multiplicación de matrices
+            case 3: // MultiplicaciÃ³n
+                for (int i = 0; i < filas; i++) {
+                    for (int j = 0; j < columnas; j++) {
+                        resultado[i][j] = 0;
+                        for (int k = 0; k < columnas; k++) {
+                            resultado[i][j] += matriz1[i][k] * matriz2[k][j];
+                        }
+                    }
+                }
+
+                printf("\nResultado de la multiplicaciÃ³n:\n");
+                for (int i = 0; i < filas; i++) {
+                    for (int j = 0; j < columnas; j++) {
+                        printf("%d ", resultado[i][j]);
+                    }
+                    printf("\n");
+                }
                 break;
 
             case 4: // Suma de la diagonal
-                // Implementa aquí la suma de la diagonal de la matriz1
+                if (filas != columnas) {
+                    printf("La matriz no es cuadrada, no se puede calcular la suma de la diagonal.\n");
+                } else {
+                    int sumaDiagonal = 0;
+                    for (int i = 0; i < filas; i++) {
+                        sumaDiagonal += matriz1[i][i];
+                    }
+                    printf("\nSuma de la diagonal de matriz1: %d\n", sumaDiagonal);
+                }
                 break;
 
             case 5: // Suma triangular superior
-                // Implementa aquí la suma de la triangular superior de la matriz1
+                if (filas != columnas) {
+                    printf("La matriz no es cuadrada, no se puede calcular la suma del triangular superior.\n");
+                } else {
+                    int sumaTriangularSuperior = 0;
+                    for (int i = 0; i < filas; i++) {
+                        for (int j = i + 1; j < columnas; j++) {
+                            sumaTriangularSuperior += matriz1[i][j];
+                        }
+                    }
+
+                    printf("\nMatriz1:\n");
+                    for (int i = 0; i < filas; i++) {
+                        for (int j = 0; j < columnas; j++) {
+                            printf("%d ", matriz1[i][j]);
+                        }
+                        printf("\n");
+                    }
+
+                    printf("\nSuma del triangular superior de matriz1: %d\n", sumaTriangularSuperior);
+                }
                 break;
 
             case 6: // Terminar el programa
@@ -109,4 +151,3 @@ int main() {
 
     return 0;
 }
-
