@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int fib(int i){
+unsigned long long int fib(unsigned long long int i){
 	if(i<2){
 		return i;
 	}	
@@ -11,12 +11,12 @@ int fib(int i){
 }
 
 int main(){
-	int n;
+	unsigned long long int n;
 	printf("Numero de elementos de la serie: ");
-	scanf("%d", &n);
+	scanf("%llu", &n);
 	
 	for(int i=0;i<n;i++){
-		printf("%d ", fib(i));
+		printf("\nvalor %d: %llu\n", i, fib(i));
 	}
 	
 	return 0;	
